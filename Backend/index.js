@@ -19,9 +19,15 @@ const storage = multer.diskStorage({
   }
 });
 app.use(multer({storage}).single('image'));
-// **interpretar datos de formularios como JSON
+// **interpret form data as JSON
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+
+//Routers
+app.use('/api/books', require('./router/books'));
+
+// Static files ** Send static files (HTML, CSS, Img, Fonts)
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Start the server
 app.listen(app.get('port'), () => {

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://x/./FrontEnd/styles/style.css"],"names":[],"mappings":"AAAA;EACE,SAAS;EACT,UAAU;EACV,sBAAsB;AACxB;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;AAClB,C","file":"css/bundle.css","sourcesContent":["* {\r\n  margin: 0;\r\n  padding: 0;\r\n  box-sizing: border-box;\r\n}\r\n\r\nbody {\r\n  background: green;\r\n  color: aliceblue;\r\n}"],"sourceRoot":""}

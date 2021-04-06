@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development  nodemon BackEnd/index.js",
-    "start": "cross-env NODE_ENV=production nodemon BackEnd/index.js"
+    "dev": "cross-env NODE_ENV=development  nodemon BackEnd/index.js --ignore FrontEnd",
+    "start": "cross-env NODE_ENV=production nodemon BackEnd/index.js",
+    "build": "cross-env NODE_ENV=production webpack"
   },
   "keywords": [],
   "author": "Ricardo Prada",

@@ -6,6 +6,7 @@ const express = require('express');
 const morgan = require('morgan');
 const multer = require('multer');
 const path = require('path');
+const cors = require('cors');
 
 //Inicializations
 const app = express();
@@ -20,13 +21,14 @@ app.use(morgan('dev'));
 const storage = multer.diskStorage({
   destination: path.join(__dirname,'public/uploads'),
   filename(req, file, cb) {
-    cb(null, new Date.getTime() + path.extname(file.originalname))
+    cb(null, new Date().getTime() + path.extname(file.originalname))
   }
 });
 app.use(multer({storage}).single('image'));
 // **interpret form data as JSON
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cors());
 
 //Routers
 app.use('/api/books', require('./router/books'));

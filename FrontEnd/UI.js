@@ -43,9 +43,25 @@ class UI {
     document.getElementById("book-form").reset();
   }
 
-  renderMessage() {}
+  renderMessage(message, colorMessage, secondsToRemove) {
+    const div = document.createElement('div');
+    div.className = `alert alert-${colorMessage} message`;
+    div.appendChild(document.createTextNode(message));
 
-  deleteBook() {}
+    const constainer = document.querySelector(".col-md-4");
+    const bookForm = document.querySelector("#book-form");
+
+    constainer.insertBefore(div, bookForm);
+    setTimeout(() => {
+      document.querySelector('.message').remove()
+    }, secondsToRemove);
+
+  }
+
+  async deleteBook(bookId) {
+    await bookService.deleteBooks(bookId);
+    this.renderBooks();
+  }
 
 }
 
